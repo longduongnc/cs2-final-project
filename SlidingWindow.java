@@ -54,6 +54,6 @@ public class SlidingWindow extends JFrame {
 
         // Example of using the window to set panel states:
         slidingWindow.setPanelState(0, true);   // Set the first panel to valid (green)
-        slidingWindow.setPanelState(1, false);  // Set the second panel to invalid (red)
+        slidingWindow.setPanelState(3, false);  // Set the second panel to invalid (red)
     }
 }
