@@ -1,17 +1,19 @@
 import java.awt.*;
 import javax.swing.*;
 
-public class SlidingWindow extends JFrame {
+/**
+ * A visual panel that displays number tiles from 1 to 9.
+ * Each tile can be highlighted as valid (green) or invalid (red),
+ * typically used alongside a Sudoku board to reflect user input validation.
+ */
+
+public class SlidingWindow extends JPanel {
     private JPanel[] numberPanels;
 
     // Constructor
     public SlidingWindow() {
-        //Make the Window Frame
-        super("Sudoku Sliding Window");
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setSize(600, 100);
-        setResizable(false);
         setLayout(new GridLayout(1, 9, 10, 10));
+        setPreferredSize(new Dimension(600, 80));
 
         // Array to hold the panels for numbers 1 to 9
         numberPanels = new JPanel[9];
@@ -37,7 +39,7 @@ public class SlidingWindow extends JFrame {
      * @param index Index of the panel to update (0-based)
      * @param isValid Boolean state for the panel (true for valid, false for invalid)
      */
-    private void setPanelState(int index, boolean isValid) {
+    public void setPanelState(int index, boolean isValid) {
         if (index < 0 || index >= numberPanels.length) return;
 
         if (isValid) {
@@ -54,6 +56,6 @@ public class SlidingWindow extends JFrame {
 
         // Example of using the window to set panel states:
         slidingWindow.setPanelState(0, true);   // Set the first panel to valid (green)
-        slidingWindow.setPanelState(3, false);  // Set the second panel to invalid (red)
+        slidingWindow.setPanelState(1, false);  // Set the second panel to invalid (red)
     }
 }
